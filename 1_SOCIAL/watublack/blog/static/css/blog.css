@@ -5,7 +5,8 @@ body {
 }
 
 a {
-    color:#00abff;
+    /*color:#00abff;*/
+    color: #800080;
     text-decoration:none;
 }
 
@@ -89,4 +90,46 @@ input[type=submit] {
     font-weight:bold;
     font-size:12px;
     color:#666;
+}
+
+/*TOPNAV*/
+
+#topnav {
+   width: 100%;
+
+   /*position: fixed;*/
+   top: 0;
+   left: 0;
+
+   background-color: Black;
+
+   font-family: Arial, sans-serif;
+   font-size: 15px;
+}
+
+.nav-link {
+   display: inline-block;
+   width: 100px;
+   height: 55px;
+
+   color: White;
+
+   /* centering text */
+   text-align: center;    /* horizontally */
+   line-height: 55px;     /* vertically */
+
+   text-decoration: none;
+}
+
+#logo {
+   width: 120px;
+
+   background-color: #483D8B;
+
+   font-weight: bold;
+}
+
+.mbili {
+    color: #FF0000!important;
+    font-size: 22px!important;
 }

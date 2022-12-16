@@ -2,10 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" type="image/x-icon" href="{% static 'img/favicon-32.png' %}">
   <title>{% block title %}{% endblock %}</title>
   <link href="{% static 'css/blog.css' %}" rel="stylesheet">
 </head>
 <body>
+
+  {% include "navigation.html" %}
   <div id="content">
     {% block content %}
     {% endblock %}
