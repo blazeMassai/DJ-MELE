@@ -5,10 +5,10 @@ body {
 }
 
 a {
-    /*color:#00abff;*/
-    color: #800080;
+    color: #696969;
     text-decoration:none;
 }
+
 
 h1 {
     font-weight:normal;
@@ -132,4 +132,30 @@ input[type=submit] {
 .mbili {
     color: #FF0000!important;
     font-size: 22px!important;
+}
+
+.pill-btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
+.pill-btn:hover {
+  background-color: #f1f1f1;
+}
+
+.post-card{
+    padding: 10px;
+    margin: 4px;
+    /*box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;*/
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius: 5px;
 }
