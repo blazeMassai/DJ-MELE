@@ -8,6 +8,9 @@ django = "*"
 psycopg2 = "*"
 django-crispy-forms = "*"
 django-bootstrap4 = "*"
+django-taggit = "*"
+markdown = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
