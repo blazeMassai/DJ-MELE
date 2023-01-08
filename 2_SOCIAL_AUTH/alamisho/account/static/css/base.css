@@ -433,3 +433,12 @@ img.user-detail {
 .the-item {
     margin: 15px;
 }
+
+/*checkbox {width: 20px; height: 20px;}*/
+
+input[type='checkbox' i] {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    text-align: center;
+}
