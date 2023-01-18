@@ -7,6 +7,10 @@ name = "pypi"
 django = "*"
 psycopg2 = "*"
 pillow = "*"
+social-auth-app-django = "*"
+django-extensions = "*"
+werkzeug = "*"
+pyopenssl = "*"
 
 [dev-packages]
 
