@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block title %}Logged out{% endblock %}
+
+{% block content %}
+
+    <h2 class="welcometext"><em>Logged out</em></h2>
+
+
+
+    <div class="alert-info">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+       You have been successfully logged out.
+       You can <a href="{% url 'login' %}">log-in again</a>.
+     </div>
+
+{% endblock %}

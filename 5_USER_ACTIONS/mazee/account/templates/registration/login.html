@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Log-in {% endblock %}
+
+{% block content %}
+
+<div class="home">
+    <p><em>Please, use the following form to log-in</em></p>
+
+    <form action="{% url 'login' %}" method="post"  id="myform">
+
+      <h1><span class="logos">Log</span>in</h1>
+
+
+    {% if form.errors %}
+         <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+           Your username and password didn't match.
+           Please try again.
+         </div>
+    {% endif %}
+
+
+      {{ form.as_p }}
+      {% csrf_token %}
+      <p>
+        <input type="submit" value="Log in">
+      </p>
+
+
+
+       <div class="the-row">
+            <div class="the-item">
+                <p>
+                    Don't have an account?
+                    <a href="{% url 'register' %}">
+                        Register
+                    </a>
+                </p>
+            </div>
+
+            <div class="the-item">
+                <p>
+                    <a href="{% url 'password_reset' %}">
+                    Forgotten your password?
+                    </a>
+                </p>
+            </div>
+       </div>
+
+        <div class="the-row">
+             <div class="the-item">
+                <p>
+                            <a href="{% url 'social:begin' 'facebook' %}">Sign in with Facebook</a>
+                </p>
+             </div>
+
+            <div class="the-item">
+                <p>
+                            <a href="{% url 'social:begin' 'google-oauth2' %}">Sign in with Google</a>
+                </p>
+             </div>
+        </div>
+
+    </form>
+
+
+
+
+</div>
+
+{% endblock %}
