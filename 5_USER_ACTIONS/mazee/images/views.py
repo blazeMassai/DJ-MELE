@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
@@ -8,7 +9,10 @@ from django.views.decorators.http import require_POST
 from .forms import *
 from django.views.decorators.cache import cache_control
 from django.shortcuts import get_object_or_404, render
+import redis
 
+#connect to redis
+r = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
 
 @login_required
 @cache_control(max_age=0, no_cache=True, no_store=True, must_revalidate=True)
@@ -28,11 +32,11 @@ def image_create(request):
     return render(request, 'images/image/create.html', {'form': form})
 
 
+@login_required
+@cache_control(max_age=0, no_cache=True, no_store=True, must_revalidate=True)
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
     return render(request, 'images/image/detail.html', {'section': 'image', 'image': image})
-
-
 
 
 @login_required
@@ -80,5 +84,5 @@ def image_list(request):
                        'images': images})
     return render(request,
                   'images/image/list.html',
-                   {'section': 'images',
-                    'images': images})
+                  {'section': 'images',
+                   'images': images})

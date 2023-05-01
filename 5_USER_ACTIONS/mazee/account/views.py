@@ -9,8 +9,9 @@ from django.views.decorators.http import require_POST
 from .forms import *
 from .models import Profile, Contact
 from django.contrib import messages
-
 from actions.utils import create_action
+
+from actions.models import Action
 
 
 def user_login(request):
@@ -36,7 +37,14 @@ def user_login(request):
 @login_required
 @cache_control(max_age=0, no_cache=True, no_store=True, must_revalidate=True)
 def dashboard(request):
-    return render(request, 'account/dashboard.html', {'section': dashboard})
+    # display all actions by default
+    actions = Action.objects.exclude(user=request.user)
+    following_ids = request.user.following.values_list('id', flat=True)
+    if following_ids:
+        # if user is following others, retrieve only
+        actions = actions.filter(user_id__in=following_ids)
+    actions = actions.select_related('user', 'user__profile').prefetch_related('target')[:10]
+    return render(request, 'account/dashboard.html', {'section': dashboard, 'actions': actions})
 
 
 # this code is added on 6/1/23
